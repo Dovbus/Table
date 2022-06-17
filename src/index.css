@@ -6,3 +6,11 @@ td {
 .border {
   margin-top: 50px;
 }
+
+.cell-hover {
+  transition: all 0.3s;
+}
+
+.cell-hover:hover {
+  background-color: #fff010;
+}

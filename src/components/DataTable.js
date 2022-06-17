@@ -7,8 +7,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import db from "../db.json";
-import { ValueTable } from "./ValueTable";
 import { ModalTable } from "./ModalTable";
+import "../index.css";
 
 const headColumnLabels = ["xx", "yy", "zz"];
 const years = ["2017", "2018", "2019"];
@@ -75,6 +75,7 @@ export function DataTable() {
                       return (
                         <React.Fragment key={i}>
                           <TableCell
+                            className="cell-hover"
                             key={`xx${i}`}
                             onClick={() => handleClickOpen(count)}
                             sx={{ cursor: "pointer" }}
@@ -83,6 +84,7 @@ export function DataTable() {
                             {coord?.XX?.value}
                           </TableCell>
                           <TableCell
+                            className="cell-hover"
                             key={`yy${i}`}
                             onClick={() => handleClickOpen(count + 1)}
                             sx={{ cursor: "pointer" }}
@@ -91,6 +93,7 @@ export function DataTable() {
                             {coord?.YY?.value}
                           </TableCell>
                           <TableCell
+                            className="cell-hover"
                             key={`zz${i}`}
                             onClick={() => handleClickOpen(count + 2)}
                             sx={{ cursor: "pointer" }}
