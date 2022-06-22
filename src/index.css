@@ -14,3 +14,7 @@ td {
 .cell-hover:hover {
   background-color: #fff010;
 }
+
+.link {
+  text-decoration: none;
+}

@@ -4,43 +4,52 @@
       "2017": {
         "XX": {
           "value": 150000,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 0
         },
         "YY": {
           "value": 100000,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 1
         },
         "ZZ": {
           "value": 77,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 2
         }
       },
       "2018": {
         "XX": {
           "value": 160000,
-          "dateRelease": "2018-12-31"
+          "dateRelease": "2018-12-31",
+          "id": 3
         },
         "YY": {
           "value": 110000,
-          "dateRelease": "2018-12-31"
+          "dateRelease": "2018-12-31",
+          "id": 4
         },
         "ZZ": {
           "value": 72,
-          "dateRelease": "2018-12-31"
+          "dateRelease": "2018-12-31",
+          "id": 5
         }
       },
       "2019": {
         "XX": {
           "value": 130000,
-          "dateRelease": "2019-12-31"
+          "dateRelease": "2019-12-31",
+          "id": 6
         },
         "YY": {
           "value": 85000,
-          "dateRelease": "2019-12-31"
+          "dateRelease": "2019-12-31",
+          "id": 7
         },
         "ZZ": {
           "value": 72,
-          "dateRelease": "2019-12-31"
+          "dateRelease": "2019-12-31",
+          "id": 8
         }
       }
     }
@@ -50,29 +59,52 @@
       "2017": {
         "XX": {
           "value": 10000,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 9
         },
         "YY": {
           "value": 5000,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 10
         },
         "ZZ": {
           "value": 45,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 11
+        }
+      },
+      "2018": {
+        "XX": {
+          "value": null,
+          "dateRelease": "",
+          "id": 12
+        },
+        "YY": {
+          "value": null,
+          "dateRelease": "",
+          "id": 13
+        },
+        "ZZ": {
+          "value": null,
+          "dateRelease": "",
+          "id": 14
         }
       },
       "2019": {
         "XX": {
           "value": 15000,
-          "dateRelease": "2019-12-01"
+          "dateRelease": "2019-12-01",
+          "id": 15
         },
         "YY": {
           "value": 0,
-          "dateRelease": "2022-02-18"
+          "dateRelease": "2022-02-18",
+          "id": 16
         },
         "ZZ": {
           "value": 0,
-          "dateRelease": "2022-02-18"
+          "dateRelease": "2022-02-18",
+          "id": 17
         }
       }
     }
@@ -82,29 +114,52 @@
       "2017": {
         "XX": {
           "value": 640000,
-          "dateRelease": "2017-12-31"
+          "dateRelease": "2017-12-31",
+          "id": 18
         },
         "YY": {
           "value": 510000,
-          "dateRelease": "2017-08-01"
+          "dateRelease": "2017-08-01",
+          "id": 19
         },
         "ZZ": {
           "value": 67,
-          "dateRelease": "2017-08-01"
+          "dateRelease": "2017-08-01",
+          "id": 20
         }
       },
       "2018": {
         "XX": {
           "value": 740000,
-          "dateRelease": "2018-12-31"
+          "dateRelease": "2018-12-31",
+          "id": 21
         },
         "YY": {
           "value": 530000,
-          "dateRelease": "2018-08-01"
+          "dateRelease": "2018-08-01",
+          "id": 22
         },
         "ZZ": {
           "value": 61,
-          "dateRelease": "2018-08-01"
+          "dateRelease": "2018-08-01",
+          "id": 23
+        }
+      },
+      "2019": {
+        "XX": {
+          "value": null,
+          "dateRelease": "",
+          "id": 24
+        },
+        "YY": {
+          "value": null,
+          "dateRelease": "",
+          "id": 25
+        },
+        "ZZ": {
+          "value": null,
+          "dateRelease": "",
+          "id": 26
         }
       }
     }

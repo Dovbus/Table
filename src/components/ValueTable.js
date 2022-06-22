@@ -9,17 +9,28 @@ import Paper from "@mui/material/Paper";
 import InputLabel from "@mui/material/InputLabel";
 import NativeSelect from "@mui/material/NativeSelect";
 import { Button, TextField, Box, FormControl } from "@mui/material";
+import { Container } from "@mui/system";
 import { useDispatch } from "react-redux/es/exports";
+import { Link } from "react-router-dom";
+
 import { useValueTable } from "../redux/valueTableSlice";
 import { addValue } from "../redux/valueTableSlice";
-import { formatDate } from "../helpers";
+import { usePosition } from "../redux/positionSlice";
+import { editValue } from "../redux/mainTableValuesSlice";
+import { formatDate, getRegion, getYear, getCoords } from "../helpers";
 
-export function ValueTable({ position }) {
+import "../index.css";
+
+export function ValueTable() {
   const [numberValue, setNumberValue] = useState("");
   const [comment, setComment] = useState("");
   const [user, setUser] = useState("Anna");
   const dispatch = useDispatch();
   const valueTable = useValueTable();
+  const position = usePosition();
+  const currentRegion = getRegion(position);
+  const currentYear = getYear(position);
+  const currentCoord = getCoords(position);
 
   function handleAddValueClick() {
     dispatch(
@@ -30,35 +41,59 @@ export function ValueTable({ position }) {
         user: user,
       })
     );
+
+    dispatch(
+      editValue({
+        region: currentRegion,
+        year: currentYear,
+        coords: currentCoord,
+        value: valueTable[position].at(-1).value,
+      })
+    );
+
     setComment("");
     setNumberValue("");
   }
 
+  const handleClose = () => {
+    dispatch(
+      editValue({
+        region: currentRegion,
+        year: currentYear,
+        coords: currentCoord,
+        value: valueTable[position].at(-1).value,
+      })
+    );
+
+    window.close();
+  };
+
   return (
-    <>
+    <Container maxWidth="lg" sx={{ mt: "20px" }}>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
-          <TableHead>
+          <TableHead className="border">
             <TableRow>
-              <TableCell>VALUE</TableCell>
-              <TableCell>DATE</TableCell>
-              <TableCell>USER</TableCell>
-              <TableCell>COMMENT</TableCell>
+              <TableCell align="center">VALUE</TableCell>
+              <TableCell align="center">DATE</TableCell>
+              <TableCell align="center">USER</TableCell>
+              <TableCell align="center">COMMENT</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {valueTable[position].map((item, i) => {
-              return (
-                <TableRow key={i}>
-                  <TableCell>{item?.value}</TableCell>
-                  <TableCell>{item?.date}</TableCell>
-                  <TableCell>{item?.user}</TableCell>
-                  <TableCell>{item?.comment}</TableCell>
-                </TableRow>
-              );
-            })}
+            {valueTable &&
+              valueTable?.[position].map((item, i) => {
+                return (
+                  <TableRow key={i}>
+                    <TableCell align="center">{item?.value}</TableCell>
+                    <TableCell align="center">{item?.date}</TableCell>
+                    <TableCell align="center">{item?.user}</TableCell>
+                    <TableCell align="center">{item?.comment}</TableCell>
+                  </TableRow>
+                );
+              })}
             <TableRow>
-              <TableCell>
+              <TableCell align="center">
                 <TextField
                   value={numberValue}
                   placeholder="value"
@@ -67,8 +102,8 @@ export function ValueTable({ position }) {
                   onChange={(e) => setNumberValue(e.target.value)}
                 />
               </TableCell>
-              <TableCell>{formatDate(Date.now())}</TableCell>
-              <TableCell sx={{ padding: "0 10px 10px" }}>
+              <TableCell align="center">{formatDate(Date.now())}</TableCell>
+              <TableCell align="center" sx={{ padding: "0 10px 10px" }}>
                 <FormControl
                   variant="filled"
                   sx={{ minWidth: 70 }}
@@ -79,7 +114,6 @@ export function ValueTable({ position }) {
                     id="select"
                     value={user}
                     onChange={(e) => {
-                      console.log(e.target.value);
                       setUser(e.target.value);
                     }}
                   >
@@ -89,7 +123,7 @@ export function ValueTable({ position }) {
                   </NativeSelect>
                 </FormControl>
               </TableCell>
-              <TableCell>
+              <TableCell align="center">
                 <TextField
                   value={comment}
                   size="small"
@@ -106,6 +140,7 @@ export function ValueTable({ position }) {
           display: "flex",
           justifyContent: "flex-end",
           mt: "10px",
+          mb: "20px",
         }}
       >
         <Button
@@ -119,7 +154,19 @@ export function ValueTable({ position }) {
         >
           Add
         </Button>
+        <Link to="/" className="link" state={numberValue}>
+          <Button
+            variant="outlined"
+            onClick={handleClose}
+            sx={{
+              marginInlineStart: "15px",
+              marginInlineEnd: "15px",
+            }}
+          >
+            Close
+          </Button>
+        </Link>
       </Box>
-    </>
+    </Container>
   );
 }

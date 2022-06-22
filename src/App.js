@@ -1,20 +1,21 @@
 import React from "react";
 import { CssBaseline } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { DataTable } from "./components/DataTable";
-import { Container } from "@mui/system";
-import { Box } from "@mui/material";
+import { ValueTable } from "./components/ValueTable";
+
 import "./index.css";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <CssBaseline />
-      <Container maxWidth="lg">
-        <Box className="border">
-          <DataTable />
-        </Box>
-      </Container>
-    </>
+      <Routes>
+        <Route path="/" element={<DataTable />} />
+        <Route path="value-:position" element={<ValueTable />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
